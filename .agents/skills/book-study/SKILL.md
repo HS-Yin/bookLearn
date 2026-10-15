@@ -83,9 +83,15 @@ result as `复习累计=k/6`.
 For an existing row without an explicit count, do not guess whether it records the
 initial understanding check or a later review; use only confirmed separate reviews
 for the baseline. Store the dated scope, component counts, and computed global
-percentage in `progress.md`. After each completed section, core check, or planned
-review, update and show the global percentage to two decimal places; report it again
-when the user ends a study day. Explain the four-part convention and any
+percentage in `progress.md`. After **every** completed section, core check, or planned
+review, compare the new value with the previous recorded global value using unrounded
+numbers. In the same reply, show `全书进度 旧值% → 新值%（提升 X 个百分点）`, name the
+component that changed, and save the new dated value in `progress.md`. Use two decimal
+places by default; show more decimals if rounding would hide a real change. If no
+milestone was earned, report an unchanged value and why instead of inventing an
+increase. Do not send a progress update for an unanswered question or a hint within
+the same review. Report the final current value again when the user ends a study day.
+Explain the four-part convention and any
 incomplete historical baseline as needed. It measures completion of the stated plan,
 not current skill. Keep weak concepts and current mastery states visible separately.
 With fixed denominators, earned milestones only increase; if the user expands the
