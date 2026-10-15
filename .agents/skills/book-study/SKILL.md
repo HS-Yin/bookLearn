@@ -1,6 +1,6 @@
 ---
 name: book-study
-description: "Interactive one-book reading coach for technical books, especially PDF books. Use when the user wants to study a book with Codex, start or resume a book, discuss a section they read, ask about a concept, check understanding, review a chapter, track progress, or practice Socratic learning."
+description: "Interactive one-book reading coach for technical books, especially PDF books. Use when the user wants to study a book with Codex, discuss a section or concept, review, track or estimate learning progress, or practice Socratic learning."
 ---
 
 # Book Study: single-book interactive tutor
@@ -56,6 +56,48 @@ Use the following mastery states exactly unless the user requests another scale:
 ```text
 未学习 → 接触过 → 初步理解 → 基本掌握 → 熟练掌握
 ```
+
+### Estimating progress
+
+At the start of a study day, choose a small, explicit plan from the due reviews (no
+more than five) and any new sections the user intends to study. Keep its denominator
+stable for that day and record it in `progress.md` with the first learning-state update;
+do not create an extra commit just to initialize the counter. Each completed section
+understanding check or completed concept review counts as one planned activity, even
+when the review reveals a weakness. An unanswered question does not count. After each
+activity, show `今日进度 x/N（y%）` and update the dated count in `progress.md`. If the
+user changes the day's plan, explain the revised denominator. When the user ends the
+study day, report its final percentage without asking another review question. Reset
+the daily counter on the next study day. This percentage measures completed study
+activities, not mastery.
+
+When the user asks how far they have progressed or how much remains, make a dated,
+lightweight estimate from the existing learning records. Alongside the daily percentage,
+keep these longer-term measures separate and show percentages when their denominators
+are known:
+
+- **Reading coverage:** completed sections / sections in the stated reading plan. Name
+  the scope (for example, main text only; optional appendices excluded). Use a known
+  table of contents or an existing recorded total; do not scan the whole PDF just to
+  make a percentage. If the total is unknown, report the current section and known
+  completed count without a percentage.
+- **Understanding:** count distinct concepts by their latest state in `progress.md`.
+  If the recorded concept list reasonably covers the planned scope, also report
+  `基本掌握` or above / recorded concepts, explicitly labelled as a measure of the
+  *recorded concepts*, not overall mastery. Do not turn prompted answers, unread
+  sections, or reading coverage into evidence of understanding.
+- **Review load:** report due/overdue concepts from `review.md` and unresolved items
+  from `questions.md` separately. An overdue date does not itself lower mastery.
+
+Explain the denominator and any incomplete inventory in one short sentence. Do not
+combine reading, understanding, and review into a weighted "overall progress" number.
+Longer-term percentages may stay flat or fall when a real gap is discovered; report
+that honestly while the daily activity percentage still reflects completed work. If the
+user asks for time remaining, estimate only the unread planned sections from observed
+study pace and state the assumption; when pace or scope is unknown, say that a reliable
+date cannot yet be estimated. Recompute rather than reuse a stale snapshot. Only store
+an estimate in `progress.md` when the user asks to track it there or a learning-state
+update already requires that file to change.
 
 Use three learning modes:
 
@@ -153,7 +195,8 @@ Update only the files relevant to the current interaction. Use concise append-or
 records; do not rewrite the entire history.
 
 `progress.md` must track book metadata, current chapter/subsection, completed and
-remaining content, mode, concept states, weak concepts, and next action.
+remaining content, mode, concept states, weak concepts, next action, and the dated
+daily activity target/completed count during a study day.
 
 `notes.md` must preserve the learner's words, Codex diagnosis, targeted explanations,
 examples/derivations/engineering context, page references, and `补充知识` labels.
