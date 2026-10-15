@@ -57,47 +57,42 @@ Use the following mastery states exactly unless the user requests another scale:
 未学习 → 接触过 → 初步理解 → 基本掌握 → 熟练掌握
 ```
 
-### Estimating progress
+### Estimating global progress
 
-At the start of a study day, choose a small, explicit plan from the due reviews (no
-more than five) and any new sections the user intends to study. Keep its denominator
-stable for that day and record it in `progress.md` with the first learning-state update;
-do not create an extra commit just to initialize the counter. Each completed section
-understanding check or completed concept review counts as one planned activity, even
-when the review reveals a weakness. An unanswered question does not count. After each
-activity, show `今日进度 x/N（y%）` and update the dated count in `progress.md`. If the
-user changes the day's plan, explain the revised denominator. When the user ends the
-study day, report its final percentage without asking another review question. Reset
-the daily counter on the next study day. This percentage measures completed study
-activities, not mastery.
+Use a cumulative, book-wide percentage that does not reset each day. Fix the scope and
+denominators from the planned sections and distinct tracked concepts. This project's
+default plan-completion convention is:
 
-When the user asks how far they have progressed or how much remains, make a dated,
-lightweight estimate from the existing learning records. Alongside the daily percentage,
-keep these longer-term measures separate and show percentages when their denominators
-are known:
+- Reading: 40% × completed / planned sections.
+- Core understanding: 40% × concepts that have *ever* reached `基本掌握` or above after
+  an evidence-based check / tracked concepts. Keep this earned milestone even if a
+  later review reveals a weakness; show the *current* mastery distribution separately.
+- Spaced-review work: 20% × explicitly counted completed reviews / (6 × tracked
+  concepts), capped at six per concept. The six slots match the
+  +1/+3/+7/+14/+30/+60-day schedule below. Count a review after an answer and
+  diagnosis, even when it reveals a weakness; do not count unanswered questions or
+  extra hints in the same review twice. A failed review still resets its next due date
+  to +1 day and does not imply mastery.
 
-- **Reading coverage:** completed sections / sections in the stated reading plan. Name
-  the scope (for example, main text only; optional appendices excluded). Use a known
-  table of contents or an existing recorded total; do not scan the whole PDF just to
-  make a percentage. If the total is unknown, report the current section and known
-  completed count without a percentage.
-- **Understanding:** count distinct concepts by their latest state in `progress.md`.
-  If the recorded concept list reasonably covers the planned scope, also report
-  `基本掌握` or above / recorded concepts, explicitly labelled as a measure of the
-  *recorded concepts*, not overall mastery. Do not turn prompted answers, unread
-  sections, or reading coverage into evidence of understanding.
-- **Review load:** report due/overdue concepts from `review.md` and unresolved items
-  from `questions.md` separately. An overdue date does not itself lower mastery.
+Record each concept's counted reviews in its `review.md` result as `复习累计=k/6`.
+For an existing row without an explicit count, do not guess whether it records the
+initial understanding check or a later review; use only confirmed separate reviews
+for the baseline. Store the dated scope, component counts, and computed global
+percentage in `progress.md`. After each completed section, core check, or planned
+review, update and show the global percentage to two decimal places; report it again
+when the user ends a study day. Explain the fixed 40/40/20 convention and any
+incomplete historical baseline as needed. It measures completion of the stated plan,
+not current skill. Keep weak concepts and current mastery states visible separately.
+With fixed denominators, earned milestones only increase; if the user expands the
+reading scope or concept inventory, explain any denominator change. After six counted
+reviews, further maintenance does not add plan credit.
 
-Explain the denominator and any incomplete inventory in one short sentence. Do not
-combine reading, understanding, and review into a weighted "overall progress" number.
-Longer-term percentages may stay flat or fall when a real gap is discovered; report
-that honestly while the daily activity percentage still reflects completed work. If the
-user asks for time remaining, estimate only the unread planned sections from observed
-study pace and state the assumption; when pace or scope is unknown, say that a reliable
-date cannot yet be estimated. Recompute rather than reuse a stale snapshot. Only store
-an estimate in `progress.md` when the user asks to track it there or a learning-state
-update already requires that file to change.
+When reporting progress, also give reading coverage, current `基本掌握` or above /
+tracked concepts, and due/overdue reviews separately. Name the scope (for example,
+main text only). Do not scan the whole PDF solely to make a denominator. If the
+planned scope is unknown, report known counts and ask for it before giving a global
+percentage. If the user asks for time remaining, estimate unread planned sections
+only from observed pace and state the assumption; otherwise avoid a completion date.
 
 Use three learning modes:
 
@@ -196,7 +191,7 @@ records; do not rewrite the entire history.
 
 `progress.md` must track book metadata, current chapter/subsection, completed and
 remaining content, mode, concept states, weak concepts, next action, and the dated
-daily activity target/completed count during a study day.
+global percentage with its scope and component counts.
 
 `notes.md` must preserve the learner's words, Codex diagnosis, targeted explanations,
 examples/derivations/engineering context, page references, and `补充知识` labels.
