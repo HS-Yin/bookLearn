@@ -60,27 +60,32 @@ Use the following mastery states exactly unless the user requests another scale:
 ### Estimating global progress
 
 Use a cumulative, book-wide percentage that does not reset each day. Fix the scope and
-denominators from the planned sections and distinct tracked concepts. This project's
-default plan-completion convention is:
+denominators from the planned sections and distinct tracked concepts. Show four
+component percentages and their equally weighted average:
 
-- Reading: 40% × completed / planned sections.
-- Core understanding: 40% × concepts that have *ever* reached `基本掌握` or above after
-  an evidence-based check / tracked concepts. Keep this earned milestone even if a
-  later review reveals a weakness; show the *current* mastery distribution separately.
-- Spaced-review work: 20% × explicitly counted completed reviews / (6 × tracked
+- Reading: completed / planned sections.
+- Initial understanding: concepts that have *ever* reached `初步理解` or above after an
+  evidence-based check / tracked concepts.
+- Basic understanding: concepts that have *ever* reached `基本掌握` or above after an
+  evidence-based check / tracked concepts. Keep earned milestones when a later review
+  reveals a weakness; show the *current* mastery distribution separately.
+- Spaced-review work: explicitly counted completed reviews / (6 × tracked
   concepts), capped at six per concept. The six slots match the
   +1/+3/+7/+14/+30/+60-day schedule below. Count a review after an answer and
   diagnosis, even when it reveals a weakness; do not count unanswered questions or
   extra hints in the same review twice. A failed review still resets its next due date
   to +1 day and does not imply mastery.
 
-Record each concept's counted reviews in its `review.md` result as `复习累计=k/6`.
+Global percentage = (reading % + initial understanding % + basic understanding % +
+spaced-review %) / 4. These equal weights are a visible reporting convention, not a
+scientific measure of skill. Record each concept's counted reviews in its `review.md`
+result as `复习累计=k/6`.
 For an existing row without an explicit count, do not guess whether it records the
 initial understanding check or a later review; use only confirmed separate reviews
 for the baseline. Store the dated scope, component counts, and computed global
 percentage in `progress.md`. After each completed section, core check, or planned
 review, update and show the global percentage to two decimal places; report it again
-when the user ends a study day. Explain the fixed 40/40/20 convention and any
+when the user ends a study day. Explain the four-part convention and any
 incomplete historical baseline as needed. It measures completion of the stated plan,
 not current skill. Keep weak concepts and current mastery states visible separately.
 With fixed denominators, earned milestones only increase; if the user expands the
