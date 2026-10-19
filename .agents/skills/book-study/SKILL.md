@@ -66,9 +66,10 @@ component percentages and their equally weighted average:
 - Reading: completed / planned sections.
 - Initial understanding: concepts that have *ever* reached `初步理解` or above after an
   evidence-based check / tracked concepts.
-- Basic understanding: concepts that have *ever* reached `基本掌握` or above after an
-  evidence-based check / tracked concepts. Keep earned milestones when a later review
-  reveals a weakness; show the *current* mastery distribution separately.
+- Basic understanding: concepts *currently* at `基本掌握` or above after an
+  evidence-based check / tracked concepts. If a later review exposes a core
+  misunderstanding, lower the current status until the learner demonstrates recovery;
+  a minor wording gap alone does not require a downgrade. This component may decrease.
 - Spaced-review work: explicitly counted completed reviews / (6 × tracked
   concepts), capped at six per concept. The six slots match the
   +1/+3/+7/+14/+30/+60-day schedule below. Count a review after an answer and
@@ -79,24 +80,43 @@ component percentages and their equally weighted average:
 Global percentage = (reading % + initial understanding % + basic understanding % +
 spaced-review %) / 4. These equal weights are a visible reporting convention, not a
 scientific measure of skill. Record each concept's counted reviews in its `review.md`
-result as `复习累计=k/6`.
+result as `复习累计=k/6`. Every tracked concept in `progress.md` needs one review row;
+label supplemental subtopics as excluded from the fixed concept count and do not count
+their reviews in the numerator. Audit this mapping before reporting completion.
 For an existing row without an explicit count, do not guess whether it records the
 initial understanding check or a later review; use only confirmed separate reviews
 for the baseline. Store the dated scope, component counts, and computed global
 percentage in `progress.md`. After **every** completed section, core check, or planned
 review, compare the new value with the previous recorded global value using unrounded
-numbers. In the same reply, show `全书进度 旧值% → 新值%（提升 X 个百分点）`, name the
+numbers. In the same reply, show `全书进度 旧值% → 新值%（提升/下降 X 个百分点）`, name the
 component that changed, and save the new dated value in `progress.md`. Use two decimal
 places by default; show more decimals if rounding would hide a real change. If no
-milestone was earned, report an unchanged value and why instead of inventing an
-increase. Do not send a progress update for an unanswered question or a hint within
-the same review. Report the final current value again when the user ends a study day.
-Explain the four-part convention and any
-incomplete historical baseline as needed. It measures completion of the stated plan,
-not current skill. Keep weak concepts and current mastery states visible separately.
-With fixed denominators, earned milestones only increase; if the user expands the
-reading scope or concept inventory, explain any denominator change. After six counted
-reviews, further maintenance does not add plan credit.
+component changed, report an unchanged value and why instead of inventing an increase.
+Do not send a progress update for an unanswered question or a hint within the same
+review. Report the final current value again when the user ends a study day.
+Explain the four-part convention and any incomplete historical baseline as needed.
+It measures completion of the stated reading, understanding, and review plan, not
+comprehensive professional skill. Keep weak concepts visible separately.
+With fixed denominators, reading, earned initial understanding, and counted review
+work do not decrease; current basic understanding can. If the user expands the reading
+scope or concept inventory, explain any denominator change. After six counted reviews,
+further maintenance does not add plan credit.
+
+### Completion point
+
+Treat an *exact, unrounded* global 100% as the end of the book's planned study, not
+merely the end of reading. It requires every planned section read, every tracked
+concept ever initially understood and currently at least `基本掌握`, and six counted
+reviews for every tracked concept. Never round a lower value up to 100% or announce
+completion solely from a past mastery milestone. If a core weakness remains after a
+concept's sixth counted review, continue uncredited remediation until its current
+status recovers. Once a concept has 6/6 and is currently at least `基本掌握`, set its next
+review to `按需` rather than scheduling more mandatory reviews. When the global value
+first reaches 100%, mark `全书学习完成` with the date in `progress.md`, explicitly tell the
+learner the planned book study is finished, and stop mandatory spaced-review prompts.
+Later practice or targeted refreshers are optional and do not imply the book was never
+finished. If the user later expands the scope, explain that the denominator and
+completion status may change.
 
 When reporting progress, also give reading coverage, current `基本掌握` or above /
 tracked concepts, and due/overdue reviews separately. Name the scope (for example,
