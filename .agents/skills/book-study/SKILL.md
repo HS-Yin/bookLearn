@@ -142,16 +142,14 @@ weekly summary, not a cross-book concept index.
   that same completed event. Do not infer historical points from reading milestones
   or review counts without identifiable dated events.
 - Three achieved weekly levels: `未达档` below 20; `起步` at 20–39; `稳定` at 40–59;
-  `进阶` at 60 or more. Weekly goal starts at 20 points. After two consecutive
-  completed weeks meeting the current goal, raise next week's goal one level, up to
-  60; otherwise keep it. Do not automatically demote. Report actual points and
-  achieved level separately from the target. Close a past week at the next study
-  session if no session occurred on Sunday; no background check is implied.
+  `进阶` at 60 or more. These are descriptions of actual weekly effort, not targets
+  or a promotion system. Close past weeks at the next study session if no session
+  occurred on Sunday; no background check is implied.
 - After every completed learning/review activity, show a compact current-week score
   update (points and achieved level); when the learner ends a session or study day,
-  show the week's total, target, achieved level, and points to the next level or
-  target. If no point was earned, say so without inventing progress. At a week
-  boundary, record the completed week's total and level in the ledger.
+  show the week's total and achieved level. If no point was earned, say so without
+  inventing progress. At a week boundary, record the completed week's total and
+  level in the ledger.
 
 Commit changes to `学习记录.md` with the relevant book's learning-state update, or
 separately if only the ledger changed. Never push without the user's explicit request.
