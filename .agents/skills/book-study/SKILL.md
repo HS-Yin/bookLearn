@@ -24,7 +24,9 @@ and records the learning state.
 - When a PDF page, formula, symbol, figure, or table cannot be read reliably, say so and
   request a screenshot, page image, excerpt, or the user's description. Do not guess.
 - Do not create cross-book indexes, cross-book links, RAG stores, vector databases,
-  embeddings, knowledge graphs, or a web UI.
+  embeddings, knowledge graphs, or a web UI. The user-authorized BookLearn-wide
+  weekly score ledger below is the sole exception for cross-book aggregation; it
+  does not merge books' learning states.
 
 ## Book workspace
 
@@ -117,6 +119,42 @@ learner the planned book study is finished, and stop mandatory spaced-review pro
 Later practice or targeted refreshers are optional and do not imply the book was never
 finished. If the user later expands the scope, explain that the denominator and
 completion status may change.
+
+### BookLearn-wide weekly learning score
+
+Track effort across every book under `Books/` in the workspace-root `学习记录.md`.
+Keep each book's mastery, due dates, and whole-book percentage in its own `learning/`
+files; weekly points never change a book's completion criteria. Use Asia/Shanghai
+calendar weeks, Monday through Sunday. The shared ledger is an activity record and
+weekly summary, not a cross-book concept index.
+
+- A new knowledge point earns **2 points** after its reading and evidence-based
+  understanding check are completed and diagnosed. Reading alone, a preface, or an
+  unanswered check earns no points; do not impose extra checks on optional light
+  background merely to earn points. A weakness may remain after the check, but record
+  it rather than claiming mastery.
+- A distinct planned review earns **1 point** after the answer and diagnosis, even
+  when it exposes a weakness. An optional substantive review after 6/6 may earn an
+  effort point but adds no whole-book review credit. Hints, repeated attempts at the
+  same check in one session, and administrative updates earn no extra points.
+- Record each credited event once with date, book, type, knowledge point/concept,
+  result, and points in `学习记录.md`. Before adding, check for an existing entry for
+  that same completed event. Do not infer historical points from reading milestones
+  or review counts without identifiable dated events.
+- Three achieved weekly levels: `未达档` below 10; `起步` at 10–14; `稳定` at 15–19;
+  `进阶` at 20 or more. Weekly goal starts at 10 points. After two consecutive
+  completed weeks meeting the current goal, raise next week's goal one level, up to
+  20; otherwise keep it. Do not automatically demote. Report actual points and
+  achieved level separately from the target. Close a past week at the next study
+  session if no session occurred on Sunday; no background check is implied.
+- After every completed learning/review activity, show a compact current-week score
+  update (points and achieved level); when the learner ends a session or study day,
+  show the week's total, target, achieved level, and points to the next level or
+  target. If no point was earned, say so without inventing progress. At a week
+  boundary, record the completed week's total and level in the ledger.
+
+Commit changes to `学习记录.md` with the relevant book's learning-state update, or
+separately if only the ledger changed. Never push without the user's explicit request.
 
 When reporting progress, also give reading coverage, current `基本掌握` or above /
 tracked concepts, and due/overdue reviews separately. Name the scope (for example,
@@ -235,8 +273,8 @@ for any weakness. Use a light schedule: +1 day, +3 days, +7 days, +14 days, +30 
 then +60 days; a failed review returns to +1 day. Review no more than five concepts in
 one session and ask one question per concept.
 
-Never create state files outside the active book directory unless the user explicitly
-asks for a shared overview.
+Except for the explicitly requested workspace-root `学习记录.md`, never create state
+files outside the active book directory unless the user explicitly asks for them.
 
 ### Git 同步协议
 
