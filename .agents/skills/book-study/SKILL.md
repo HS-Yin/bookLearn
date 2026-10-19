@@ -141,10 +141,10 @@ weekly summary, not a cross-book concept index.
   result, and points in `学习记录.md`. Before adding, check for an existing entry for
   that same completed event. Do not infer historical points from reading milestones
   or review counts without identifiable dated events.
-- Three achieved weekly levels: `未达档` below 10; `起步` at 10–14; `稳定` at 15–19;
-  `进阶` at 20 or more. Weekly goal starts at 10 points. After two consecutive
+- Three achieved weekly levels: `未达档` below 20; `起步` at 20–39; `稳定` at 40–59;
+  `进阶` at 60 or more. Weekly goal starts at 20 points. After two consecutive
   completed weeks meeting the current goal, raise next week's goal one level, up to
-  20; otherwise keep it. Do not automatically demote. Report actual points and
+  60; otherwise keep it. Do not automatically demote. Report actual points and
   achieved level separately from the target. Close a past week at the next study
   session if no session occurred on Sunday; no background check is implied.
 - After every completed learning/review activity, show a compact current-week score
