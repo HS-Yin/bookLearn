@@ -53,6 +53,13 @@ When the user starts a book:
 4. On resume, read `progress.md`, `questions.md`, and due items in `review.md` before
    suggesting the next action. Do not dump the files to the user.
 
+Keep the active book selected by the conversation and its book directory. A generic
+"开始今天的学习" or the end of that book's reading does not authorize starting another
+book: continue reviews or other work within the active book. Switch books only when
+the user explicitly asks, and keep each book's learning state in its own directory.
+The BookLearn-wide weekly score ledger only aggregates activity; it does not select
+the next book.
+
 Use the following mastery states exactly unless the user requests another scale:
 
 ```text
