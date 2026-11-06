@@ -6,3 +6,6 @@ desktop.ini
 *~
 .idea/
 .vscode/
+
+# 本地 PDF 解析工具（各设备自建，不入库）
+.tools/
